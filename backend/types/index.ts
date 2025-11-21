@@ -12,6 +12,10 @@ export type { EthereumConfig } from "./@fhevm/solidity/config/ZamaConfig.sol/Eth
 export { EthereumConfig__factory } from "./factories/@fhevm/solidity/config/ZamaConfig.sol/EthereumConfig__factory";
 export type { SepoliaConfig } from "./@fhevm/solidity/config/ZamaConfig.sol/SepoliaConfig";
 export { SepoliaConfig__factory } from "./factories/@fhevm/solidity/config/ZamaConfig.sol/SepoliaConfig__factory";
+export type { ZamaConfig } from "./@fhevm/solidity/config/ZamaConfig.sol/ZamaConfig";
+export { ZamaConfig__factory } from "./factories/@fhevm/solidity/config/ZamaConfig.sol/ZamaConfig__factory";
+export type { ZamaEthereumConfig } from "./@fhevm/solidity/config/ZamaConfig.sol/ZamaEthereumConfig";
+export { ZamaEthereumConfig__factory } from "./factories/@fhevm/solidity/config/ZamaConfig.sol/ZamaEthereumConfig__factory";
 export type { FHE } from "./@fhevm/solidity/lib/FHE.sol/FHE";
 export { FHE__factory } from "./factories/@fhevm/solidity/lib/FHE.sol/FHE__factory";
 export type { IDecryptionOracle } from "./@fhevm/solidity/lib/FHE.sol/IDecryptionOracle";

@@ -1,5 +1,5 @@
 /* Minimal FHEVM Relayer SDK loader and helpers following Zama official pattern */
-export const SDK_CDN_URL = "https://cdn.zama.ai/relayer-sdk-js/0.2.0/relayer-sdk-js.umd.cjs";
+export const SDK_CDN_URL = "https://cdn.zama.org/relayer-sdk-js/0.3.0-5/relayer-sdk-js.umd.cjs";
 
 export type FhevmWindow = Window & {
   relayerSDK?: any & { __initialized__?: boolean };
@@ -31,8 +31,8 @@ export async function initRelayerSDK(): Promise<void> {
 
 export async function createFhevmInstance(network: any) {
   const w = window as FhevmWindow;
-  if (!w.relayerSDK?.SepoliaConfig) throw new Error("SepoliaConfig not found on relayerSDK");
-  const config = { ...w.relayerSDK.SepoliaConfig, network };
+  if (!w.relayerSDK?.ZamaEthereumConfig) throw new Error("ZamaEthereumConfig not found on relayerSDK");
+  const config = { ...w.relayerSDK.ZamaEthereumConfig, network };
   const instance = await w.relayerSDK.createInstance(config);
   return instance as any;
 }

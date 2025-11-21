@@ -22,6 +22,14 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.SepoliaConfig__factory>;
     getContractFactory(
+      name: "ZamaConfig",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ZamaConfig__factory>;
+    getContractFactory(
+      name: "ZamaEthereumConfig",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ZamaEthereumConfig__factory>;
+    getContractFactory(
       name: "FHE",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.FHE__factory>;
@@ -113,6 +121,16 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.SepoliaConfig>;
     getContractAt(
+      name: "ZamaConfig",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ZamaConfig>;
+    getContractAt(
+      name: "ZamaEthereumConfig",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ZamaEthereumConfig>;
+    getContractAt(
       name: "FHE",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -222,6 +240,14 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.SepoliaConfig>;
     deployContract(
+      name: "ZamaConfig",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ZamaConfig>;
+    deployContract(
+      name: "ZamaEthereumConfig",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ZamaEthereumConfig>;
+    deployContract(
       name: "FHE",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.FHE>;
@@ -312,6 +338,16 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.SepoliaConfig>;
+    deployContract(
+      name: "ZamaConfig",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ZamaConfig>;
+    deployContract(
+      name: "ZamaEthereumConfig",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ZamaEthereumConfig>;
     deployContract(
       name: "FHE",
       args: any[],

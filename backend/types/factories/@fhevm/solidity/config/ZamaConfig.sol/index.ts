@@ -3,3 +3,5 @@
 /* eslint-disable */
 export { EthereumConfig__factory } from "./EthereumConfig__factory";
 export { SepoliaConfig__factory } from "./SepoliaConfig__factory";
+export { ZamaConfig__factory } from "./ZamaConfig__factory";
+export { ZamaEthereumConfig__factory } from "./ZamaEthereumConfig__factory";

@@ -5,8 +5,8 @@ import type {
   BaseContract,
   BytesLike,
   FunctionFragment,
+  Result,
   Interface,
-  EventFragment,
   ContractRunner,
   ContractMethod,
   Listener,
@@ -15,38 +15,29 @@ import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
   TypedEventLog,
-  TypedLogDescription,
   TypedListener,
+  TypedContractMethod,
 } from "../../../../common";
 
-export interface FHEInterface extends Interface {
-  getEvent(nameOrSignatureOrTopic: "PublicDecryptionVerified"): EventFragment;
+export interface ZamaEthereumConfigInterface extends Interface {
+  getFunction(nameOrSignature: "confidentialProtocolId"): FunctionFragment;
+
+  encodeFunctionData(
+    functionFragment: "confidentialProtocolId",
+    values?: undefined
+  ): string;
+
+  decodeFunctionResult(
+    functionFragment: "confidentialProtocolId",
+    data: BytesLike
+  ): Result;
 }
 
-export namespace PublicDecryptionVerifiedEvent {
-  export type InputTuple = [
-    handlesList: BytesLike[],
-    abiEncodedCleartexts: BytesLike
-  ];
-  export type OutputTuple = [
-    handlesList: string[],
-    abiEncodedCleartexts: string
-  ];
-  export interface OutputObject {
-    handlesList: string[];
-    abiEncodedCleartexts: string;
-  }
-  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
-  export type Filter = TypedDeferredTopicFilter<Event>;
-  export type Log = TypedEventLog<Event>;
-  export type LogDescription = TypedLogDescription<Event>;
-}
-
-export interface FHE extends BaseContract {
-  connect(runner?: ContractRunner | null): FHE;
+export interface ZamaEthereumConfig extends BaseContract {
+  connect(runner?: ContractRunner | null): ZamaEthereumConfig;
   waitForDeployment(): Promise<this>;
 
-  interface: FHEInterface;
+  interface: ZamaEthereumConfigInterface;
 
   queryFilter<TCEvent extends TypedContractEvent>(
     event: TCEvent,
@@ -85,28 +76,15 @@ export interface FHE extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
+  confidentialProtocolId: TypedContractMethod<[], [bigint], "view">;
+
   getFunction<T extends ContractMethod = ContractMethod>(
     key: string | FunctionFragment
   ): T;
 
-  getEvent(
-    key: "PublicDecryptionVerified"
-  ): TypedContractEvent<
-    PublicDecryptionVerifiedEvent.InputTuple,
-    PublicDecryptionVerifiedEvent.OutputTuple,
-    PublicDecryptionVerifiedEvent.OutputObject
-  >;
+  getFunction(
+    nameOrSignature: "confidentialProtocolId"
+  ): TypedContractMethod<[], [bigint], "view">;
 
-  filters: {
-    "PublicDecryptionVerified(bytes32[],bytes)": TypedContractEvent<
-      PublicDecryptionVerifiedEvent.InputTuple,
-      PublicDecryptionVerifiedEvent.OutputTuple,
-      PublicDecryptionVerifiedEvent.OutputObject
-    >;
-    PublicDecryptionVerified: TypedContractEvent<
-      PublicDecryptionVerifiedEvent.InputTuple,
-      PublicDecryptionVerifiedEvent.OutputTuple,
-      PublicDecryptionVerifiedEvent.OutputObject
-    >;
-  };
+  filters: {};
 }

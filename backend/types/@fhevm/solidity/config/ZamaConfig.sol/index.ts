@@ -3,3 +3,5 @@
 /* eslint-disable */
 export type { EthereumConfig } from "./EthereumConfig";
 export type { SepoliaConfig } from "./SepoliaConfig";
+export type { ZamaConfig } from "./ZamaConfig";
+export type { ZamaEthereumConfig } from "./ZamaEthereumConfig";

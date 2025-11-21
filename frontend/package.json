@@ -11,13 +11,14 @@
     "lint": "echo \"No lint configured\""
   },
   "dependencies": {
+    "@zama-fhe/relayer-sdk": "^0.3.0-5",
     "ethers": "^6.13.2",
     "next": "^15.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@fhevm/mock-utils": "0.1.0",
+    "@fhevm/mock-utils": "0.3.0-1",
     "@types/react": "19.2.6",
     "cross-env": "^7.0.3",
     "typescript": "^5.6.3"

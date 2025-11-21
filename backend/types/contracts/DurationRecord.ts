@@ -39,6 +39,7 @@ export interface DurationRecordInterface extends Interface {
       | "categoryThresholds"
       | "claimOrUpgrade"
       | "compareUsersPublic"
+      | "confidentialProtocolId"
       | "createActivity"
       | "getApproved"
       | "getEncryptedOverall"
@@ -52,7 +53,6 @@ export interface DurationRecordInterface extends Interface {
       | "orgs"
       | "owner"
       | "ownerOf"
-      | "protocolId"
       | "rankingOptIn"
       | "registerOrganization"
       | "rejectSubmission"
@@ -153,6 +153,10 @@ export interface DurationRecordInterface extends Interface {
     values: [AddressLike, AddressLike]
   ): string;
   encodeFunctionData(
+    functionFragment: "confidentialProtocolId",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "createActivity",
     values: [BigNumberish, BytesLike, BigNumberish, BigNumberish]
   ): string;
@@ -188,10 +192,6 @@ export interface DurationRecordInterface extends Interface {
   encodeFunctionData(
     functionFragment: "ownerOf",
     values: [BigNumberish]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "protocolId",
-    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "rankingOptIn",
@@ -331,6 +331,10 @@ export interface DurationRecordInterface extends Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "confidentialProtocolId",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "createActivity",
     data: BytesLike
   ): Result;
@@ -364,7 +368,6 @@ export interface DurationRecordInterface extends Interface {
   decodeFunctionResult(functionFragment: "orgs", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "protocolId", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "rankingOptIn",
     data: BytesLike
@@ -869,6 +872,8 @@ export interface DurationRecord extends BaseContract {
     "nonpayable"
   >;
 
+  confidentialProtocolId: TypedContractMethod<[], [bigint], "view">;
+
   createActivity: TypedContractMethod<
     [
       orgId: BigNumberish,
@@ -929,8 +934,6 @@ export interface DurationRecord extends BaseContract {
   owner: TypedContractMethod<[], [string], "view">;
 
   ownerOf: TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
-
-  protocolId: TypedContractMethod<[], [bigint], "view">;
 
   rankingOptIn: TypedContractMethod<[arg0: AddressLike], [boolean], "view">;
 
@@ -1144,6 +1147,9 @@ export interface DurationRecord extends BaseContract {
     "nonpayable"
   >;
   getFunction(
+    nameOrSignature: "confidentialProtocolId"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
     nameOrSignature: "createActivity"
   ): TypedContractMethod<
     [
@@ -1209,9 +1215,6 @@ export interface DurationRecord extends BaseContract {
   getFunction(
     nameOrSignature: "ownerOf"
   ): TypedContractMethod<[tokenId: BigNumberish], [string], "view">;
-  getFunction(
-    nameOrSignature: "protocolId"
-  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "rankingOptIn"
   ): TypedContractMethod<[arg0: AddressLike], [boolean], "view">;

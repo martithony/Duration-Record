@@ -2,7 +2,7 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint8, euint32, ebool, externalEuint32} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Strings} from "@openzeppelin/contracts/utils/Strings.sol";
@@ -14,7 +14,7 @@ import {MessageHashUtils} from "@openzeppelin/contracts/utils/cryptography/Messa
 ///         ACL for decryption, and NFT credential mint/upgrade based on encrypted thresholds.
 /// @dev Follows Zama FHEVM official patterns: external encrypted inputs via FHE.fromExternal,
 ///      post-update ACL grants with FHE.allow/FHE.allowThis, and front-end user decryption flow.
-contract DurationRecord is SepoliaConfig, ERC721, Ownable {
+contract DurationRecord is ZamaEthereumConfig, ERC721, Ownable {
   using ECDSA for bytes32;
   using MessageHashUtils for bytes32;
 
